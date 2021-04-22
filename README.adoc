@@ -1,0 +1,17 @@
+= Terraform config to provision AWS IAM credentials for installing OpenShift in Manual Credentials Mode
+
+Perform the usual Terraform steps:
+[source]
+----
+terraform init
+terraform plan
+terraform apply
+----
+
+Once completed, you can check the AWS IAM console for the created IAM policies and users.
+
+These config also generates a couple of files locally, under `generated-files` folder. In this folder, you'll find the `installer-credentials` file. This is the AWS credentials file for openshift installer. 
+
+There are also yaml files under `generated-files/secrets` folder that contains k8s yamls that should be applied to openshift cluster as part of cluster installation. 
+
+With the resources provisioned, install OpenShift (in Manual credentials mode) using the instructions from my article https://naikoob.github.io/blog/2021/04/20/manual-credentials-mode.html[here].
